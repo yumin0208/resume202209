@@ -1,8 +1,11 @@
 <template>
   <nav>
+    <!-- <a>的概念</a> -->
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link>|
+    <router-link to="/shop">shop</router-link>
   </nav>
+  <!-- router-view : 頁面會渲染到router-view -->
   <router-view/>
 </template>
 
