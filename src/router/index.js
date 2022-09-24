@@ -2,15 +2,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShopView from '../views/ShopView.vue'
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'home',
+    chName:'首頁',
     component: HomeView
   },
   {
-    path: '/Shop',
+    path: '/Shop/:productID(\\d+)',
     name: 'Shop',
+    chName:'商品',
     component: ShopView
   },
   {

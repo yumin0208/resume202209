@@ -1,14 +1,48 @@
 <template>
   <nav>
     <!-- <a>的概念</a> -->
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>|
-    <router-link to="/shop">shop</router-link>
+    <router-link
+    v-for="item in pageRoutes" 
+    :key="item.path"
+    :to="item.path">
+    {{item.chName? item.chName:item.name}}
+  </router-link> |
+  </nav>
+  <nav>
+    <router-link
+    v-for="item in 10"
+    :key="item"
+    :to="{
+      name:shop,
+      params:{
+        productID:item
+      }    }">
+      商品{{item}}
+    </router-link>
   </nav>
   <!-- router-view : 頁面會渲染到router-view -->
   <router-view/>
 </template>
 
+<script>
+  import {routes} from "@/router/index.js";
+  export default{
+    data(){
+      return{
+        // routes:routes,
+        routes//省略寫法
+      }
+    },computed:{
+      pageRoutes(){
+        //const route = this.routes.filter(item)
+
+        const route = this.routes.filter(item => item.name)
+        return route
+      }
+    }
+    
+  }
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
